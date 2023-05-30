@@ -1,17 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer utilities {
-  .w-274 {
-    width: 274px;
+  .w-450 {
+    width: 450px;
   }
   .h-568 {
     height: 568px;
   }
-}
 
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+  .grid-0fr {
+    grid-template-columns: 0fr;
+  }
+
+  .grid-1fr {
+    grid-template-columns: 1fr;
+  }
+
+  .transition-hide {
+    transition: grid-template-columns 0.5s ease-in-out 0.3s,
+      opacity 0.3s ease-in-out;
+  }
+}
 
 /* :root {
   --ubuntu-font: ${ubuntu.style.fontFamily};

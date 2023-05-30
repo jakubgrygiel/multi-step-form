@@ -9,9 +9,11 @@ export default function Step({ id, title, isActive }: IStepProps) {
     <div className="flex justify-start items-center gap-4">
       <div>
         <span
-          className={`flex justify-center items-center w-8 h-8 border border-white rounded-2xl text-sm font-bold ${
-            isActive && "bg-[#BEE2FD] text-[#022959] border-[#BEE2FD]"
-          } `}
+          className={`flex justify-center items-center w-8 h-8 border  rounded-2xl text-sm font-bold ${
+            isActive
+              ? "bg-[#BEE2FD] text-[#022959] border-[#BEE2FD]"
+              : "border-white"
+          } text-center`}
         >
           {id}
         </span>
