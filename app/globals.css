@@ -25,10 +25,6 @@
   }
 }
 
-/* :root {
-  --ubuntu-font: ${ubuntu.style.fontFamily};
-} */
-
 *,
 *::before,
 *::after {
@@ -40,8 +36,12 @@
 body,
 input,
 button {
-  height: 100dvh;
   font-family: "Ubuntu", sans-serif;
   font-weight: 400;
+  color: #022959;
+}
+
+body {
+  height: 100dvh;
   background-color: hsla(218, 100%, 97%, 1);
 }

@@ -6,7 +6,7 @@ import FormWrapper from "./form/FormWrapper";
 import { useState } from "react";
 import LastCard from "./LastCard";
 
-interface IFormData {
+export interface IFormData {
   name: string;
   email: string;
   phone: string;
@@ -18,8 +18,23 @@ interface IFormData {
 }
 
 export default function FormCard() {
-  const [formData, setFormData] = useState<IFormData>();
+  const [formData, setFormData] = useState<IFormData>({
+    name: "",
+    email: "",
+    phone: "",
+    plan: "arcade",
+    billing: "monthly",
+    onlineService: false,
+    largerStorage: false,
+    customProfile: false,
+  });
   const [currentCard, setCurrentCard] = useState<number>(0);
+
+  function updateData(path: string, value: any) {
+    let newData: IFormData = { ...formData };
+    newData[path as keyof IFormData] = value;
+    setFormData(newData);
+  }
 
   function handleClickBack() {
     if (currentCard > 0) {
@@ -64,7 +79,11 @@ export default function FormCard() {
       >
         <div className="w-450">
           {currentCard < 4 ? (
-            <FormWrapper stepId={currentCard} />
+            <FormWrapper
+              stepId={currentCard}
+              updateData={updateData}
+              data={formData}
+            />
           ) : (
             <LastCard />
           )}
@@ -78,7 +97,7 @@ export default function FormCard() {
             onClick={handleClickBack}
             className={`${
               currentCard === 0 || currentCard > 3 ? "hidden" : "block"
-            } h-12 bg-transparent text-[#9699AA] font-medium`}
+            } h-12 bg-transparent text-[#9699AA] font-medium transition-colors hover:text-[#022959]`}
           >
             Go Back
           </button>
