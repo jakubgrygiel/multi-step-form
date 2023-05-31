@@ -13,7 +13,7 @@ export default function Step({ id, title, isActive }: IStepProps) {
             isActive
               ? "bg-[#BEE2FD] text-[#022959] border-[#BEE2FD]"
               : "border-white"
-          } text-center`}
+          } text-center transition-colors`}
         >
           {id}
         </span>
