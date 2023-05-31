@@ -66,6 +66,7 @@ export default function FormCard() {
             width={274}
             height={568}
             alt="form background"
+            priority
           />
           <div className="absolute inset-0 py-8 px-10 text-white">
             <Steps stepId={currentCard} />

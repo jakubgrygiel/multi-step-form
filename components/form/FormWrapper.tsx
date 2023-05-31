@@ -44,7 +44,7 @@ export default function FormWrapper({
         {stepId === 0 && <FormStep1 updateData={updateData} data={data} />}
         {stepId === 1 && <FormStep2 updateData={updateData} data={data} />}
         {stepId === 2 && <FormStep3 updateData={updateData} data={data} />}
-        {stepId === 3 && <FormStep4 updateData={updateData} data={data} />}
+        {stepId === 3 && <FormStep4 data={data} />}
       </div>
     </div>
   );
