@@ -6,7 +6,7 @@ interface IStepsProps {
 
 export default function Steps({ stepId }: IStepsProps) {
   return (
-    <div className="flex flex-col justify-start items-start gap-8">
+    <div className="flex flex-col justify-start items-start gap-8 lg:flex-row lg:justify-center lg:gap-4">
       <Step id={1} title="YOUR INFO" isActive={stepId === 0} />
       <Step id={2} title="SELECT PLAN" isActive={stepId === 1} />
       <Step id={3} title="ADD-ONS" isActive={stepId === 2} />

@@ -18,6 +18,7 @@ export default function FormStep1({
         id="name"
         label="Name"
         placeholder="e.g. Stephen King"
+        type="text"
         value={data.name}
         updateData={updateData}
         checkInputs={checkInputs}
@@ -26,6 +27,7 @@ export default function FormStep1({
         id="email"
         label="Email Address"
         placeholder="e.g. stephenking@lorem.com"
+        type="mail"
         value={data.email}
         updateData={updateData}
         checkInputs={checkInputs}
@@ -34,6 +36,7 @@ export default function FormStep1({
         id="phone"
         label="Phone Number"
         placeholder="e.g. +1 234 567 890"
+        type="phone"
         value={data.phone}
         updateData={updateData}
         checkInputs={checkInputs}

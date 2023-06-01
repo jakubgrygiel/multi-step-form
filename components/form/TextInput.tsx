@@ -6,6 +6,7 @@ interface ITextInputProps {
   label: string;
   placeholder: string;
   value: string;
+  type: string;
   checkInputs: boolean;
   updateData: (path: string, value: any) => void;
 }
@@ -15,6 +16,7 @@ export default function TextInput({
   label,
   placeholder,
   value,
+  type,
   checkInputs,
   updateData,
 }: ITextInputProps) {
@@ -40,7 +42,7 @@ export default function TextInput({
         onChange={handleChange}
         onBlur={handleBlur}
         value={value}
-        type="text"
+        type={type}
         id={id}
         className={`h-12 w-full px-4 font-medium border rounded-lg ${
           hasError ? "border-[#EE374A]" : "border-[#D6D9E6]"

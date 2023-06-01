@@ -59,7 +59,6 @@ export default function FormCard() {
   }
 
   function handleClickConfirm() {
-    console.log(formData);
     setCurrentCard(4);
   }
 
@@ -87,7 +86,9 @@ export default function FormCard() {
           </div>
         </div>
       </div>
-      <div className="hidden absolute top-0 h-44 w-full bg-mobile lg:block"></div>
+      <div className="hidden absolute top-0 h-44 w-full pt-8 bg-mobile lg:block">
+        {currentCard < 4 && <Steps stepId={currentCard} />}
+      </div>
       <div
         className={`flex flex-col justify-between items-center h-568 px-24 lg:p-0 ${
           currentCard < 4 && "py-4  pt-10 lg:h-auto lg:w-full"
