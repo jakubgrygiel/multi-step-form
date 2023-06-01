@@ -39,7 +39,7 @@ export default function RadioInput({
       <div
         className={`flex flex-col justify-between items-start h-40 px-4 py-5 border border-[#D6D9E6] rounded-lg ${
           id === value && "bg-[#F8F9FF] border-[#483EFF]"
-        } transition-colors hover:border-[#483EFF] `}
+        } transition-colors hover:border-[#483EFF] lg:flex-row lg:justify-start lg:items-center lg:gap-4 lg:h-20`}
       >
         <Image src={image} width={40} height={40} alt={`icon of ${id} plan`} />
         <div className="flex flex-col justify-start items-start">

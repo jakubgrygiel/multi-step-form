@@ -46,9 +46,9 @@ export default function FormCard() {
 
   function handleClickNext() {
     if (
-      formData.name === "" ||
-      formData.email === "" ||
-      formData.phone === ""
+      formData.name.trim() === "" ||
+      formData.email.trim() === "" ||
+      formData.phone.trim() === ""
     ) {
       setCheckInputs(true);
       return;
@@ -68,11 +68,11 @@ export default function FormCard() {
   }
 
   return (
-    <div className="flex justify-center items-center p-4 rounded-2xl bg-white shadow-2xl">
+    <div className="relative flex justify-center items-center p-4 rounded-2xl bg-white shadow-2xl lg:flex-col lg:justify-start lg:h-full-dyn lg:w-full lg:p-0 lg:bg-transparent lg:shadow-none">
       <div
         className={`grid ${
           currentCard < 4 ? "grid-1fr" : "grid-0fr opacity-0"
-        } transition-hide`}
+        } transition-hide lg:hidden`}
       >
         <div className="relative overflow-hidden">
           <Image
@@ -87,12 +87,13 @@ export default function FormCard() {
           </div>
         </div>
       </div>
+      <div className="hidden absolute top-0 h-44 w-full bg-mobile lg:block"></div>
       <div
-        className={`flex flex-col justify-between items-center h-568 px-24 ${
-          currentCard < 4 && "py-4 pt-10"
-        }`}
+        className={`flex flex-col justify-between items-center h-568 px-24 lg:p-0 ${
+          currentCard < 4 && "py-4  pt-10 lg:h-auto lg:w-full"
+        } lg:absolute lg:top-24 lg:bottom-0 `}
       >
-        <div className="w-450">
+        <div className="w-450 lg:w-full lg:p-4">
           {currentCard < 4 ? (
             <FormWrapper
               stepId={currentCard}
@@ -105,41 +106,38 @@ export default function FormCard() {
             <LastCard />
           )}
         </div>
-        <div
-          className={`flex ${
-            currentCard === 0 ? "justify-end" : "justify-between"
-          } items-center w-full`}
-        >
-          <button
-            onClick={handleClickBack}
-            className={`${
-              currentCard === 0 || currentCard > 3 ? "hidden" : "block"
-            } h-12 bg-transparent text-[#9699AA] font-medium transition-colors hover:text-[#022959]`}
+        {currentCard < 4 && (
+          <div
+            className={`flex ${
+              currentCard === 0 ? "justify-end" : "justify-between"
+            } items-center w-full lg:p-4 lg:bg-white`}
           >
-            Go Back
-          </button>
-          <button
-            onClick={handleClickNext}
-            // disabled={
-            //   formData.name === "" ||
-            //   formData.email === "" ||
-            //   formData.phone === ""
-            // }
-            className={`${
-              currentCard > 2 ? "hidden" : "block"
-            } h-12 px-6 bg-[#022959] text-white font-medium rounded-lg anim transition-opacity disabled:opacity-30`}
-          >
-            Next step
-          </button>
-          <button
-            onClick={handleClickConfirm}
-            className={`${
-              currentCard === 3 ? "block" : "hidden"
-            } h-12 px-6 bg-[#483EFF] text-white font-medium rounded-lg`}
-          >
-            Confirm
-          </button>
-        </div>
+            <button
+              onClick={handleClickBack}
+              className={`${
+                currentCard === 0 || currentCard > 3 ? "hidden" : "block"
+              } h-12 bg-transparent text-[#9699AA] font-medium transition-colors hover:text-[#022959]`}
+            >
+              Go Back
+            </button>
+            <button
+              onClick={handleClickNext}
+              className={`${
+                currentCard > 2 ? "hidden" : "block"
+              } h-12 px-6 bg-[#022959] text-white font-medium rounded-lg anim transition-opacity hover:opacity-70`}
+            >
+              Next step
+            </button>
+            <button
+              onClick={handleClickConfirm}
+              className={`${
+                currentCard === 3 ? "block" : "hidden"
+              } h-12 px-6 bg-[#483EFF] text-white font-medium rounded-lg transition-opacity hover:opacity-70`}
+            >
+              Confirm
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

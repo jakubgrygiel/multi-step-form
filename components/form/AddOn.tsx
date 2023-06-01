@@ -35,10 +35,10 @@ export default function AddOn({
       />
       <div
         className={`flex justify-between items-center w-full px-6 py-4 rounded-lg border ${
-          value ? "border-[#483EFF] bg-[#F8F9FF]" : "border-[#D6D9E6] "
-        } transition-colors hover:border-[#483EFF]`}
+          value ? "border-[#483EFF] bg-[#F8F9FF]" : "border-[#D6D9E6]"
+        } transition-colors hover:border-[#483EFF] lg:px-4 lg:py-3`}
       >
-        <div className="flex justify-between items-center gap-6">
+        <div className="flex justify-between items-center gap-6 lg:gap-4">
           <div
             className={`flex justify-center items-center h-5 w-5 border border-[#D6D9E6] rounded ${
               value && "bg-[#483EFF]"
@@ -59,11 +59,13 @@ export default function AddOn({
             </svg>
           </div>
           <div className="flex flex-col justify-center items-start">
-            <span className=" font-medium">{title}</span>
-            <span className=" text-sm text-[#9699AA]">{description}</span>
+            <span className=" font-medium lg:text-sm">{title}</span>
+            <span className=" text-sm text-[#9699AA] lg:text-xs">
+              {description}
+            </span>
           </div>
         </div>
-        <div className="text-sm text-[#483EFF]">
+        <div className="text-sm text-[#483EFF] lg:text-xs">
           +${priceVal}/{billing === "monthly" ? "mo" : "yr"}
         </div>
       </div>

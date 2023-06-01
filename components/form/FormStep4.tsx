@@ -42,12 +42,12 @@ export default function FormStep4({ data, changeChoices }: IFormStep4Props) {
       <div className="w-full">
         <div
           className={`w-full p-6 pt-4 bg-[#F8F9FF] rounded-lg ${
-            hasAddOns ? " pt-4" : "py-4"
+            hasAddOns ? " pt-4" : "py-4 lg:py-3"
           }`}
         >
           <div
             className={`flex justify-between items-center w-full border-[#E4E5EE] ${
-              hasAddOns && "border-b pb-6"
+              hasAddOns && "border-b pb-6 lg:pb-3"
             }`}
           >
             <span>
@@ -68,7 +68,7 @@ export default function FormStep4({ data, changeChoices }: IFormStep4Props) {
             </span>
           </div>
           {hasAddOns && (
-            <div className="flex flex-col justify-between items-center gap-4 w-full pt-4">
+            <div className="flex flex-col justify-between items-center gap-4 w-full pt-4 lg:gap-3 lg:pt-3">
               {data.onlineService && (
                 <span className="flex justify-between items-center w-full">
                   <span className="text-sm text-[#9699AA]">Online service</span>
@@ -101,7 +101,7 @@ export default function FormStep4({ data, changeChoices }: IFormStep4Props) {
             </div>
           )}
         </div>
-        <div className="flex justify-between items-center w-full p-6">
+        <div className="flex justify-between items-center w-full p-6 pb-0">
           <span className="text-sm text-[#9699AA]">
             Total (per {data.billing === "monthly" ? "month" : "year"})
           </span>

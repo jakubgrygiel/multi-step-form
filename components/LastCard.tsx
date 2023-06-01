@@ -1,11 +1,12 @@
 export default function LastCard() {
   return (
-    <div className="flex flex-col justify-center items-center gap-10 w-full h-568">
+    <div className="flex flex-col justify-center items-center gap-10 w-full h-568 lg:h-full lg:p-6 lg:bg-white lg:rounded-lg lg:shadow-2xl lg:py-20 lg:gap-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="80"
         height="80"
         viewBox="0 0 80 80"
+        className="lg:w-14 lg:h-14"
       >
         <g fill="none">
           <circle cx="40" cy="40" r="40" fill="#F9818E" />
@@ -19,7 +20,7 @@ export default function LastCard() {
           />
         </g>
       </svg>
-      <h1 className="text-4xl font-bold text-center text-[#022959]">
+      <h1 className="text-4xl font-bold text-center text-[#022959] lg:text-2xl">
         Thank you!
       </h1>
       <p className="text-center  text-[#9699AA]">

@@ -39,9 +39,11 @@ export default function FormWrapper({
   updateData,
 }: IFormWrapper) {
   return (
-    <div className="flex flex-col justify-start items-start gap-10 w-full">
+    <div className="flex flex-col justify-start items-start gap-10 w-full lg:px-6 lg:py-8 lg:bg-white lg:rounded-lg lg:shadow-2xl lg:gap-5">
       <div className="flex flex-col justify-start items-start gap-3 w-full">
-        <h1 className=" text-4xl font-bold">{text[stepId].title}</h1>
+        <h1 className=" text-4xl font-bold lg:text-2xl">
+          {text[stepId].title}
+        </h1>
         <p className=" text-[#9699AA]">{text[stepId].description}</p>
       </div>
       <div className="flex justify-start items-start w-full">

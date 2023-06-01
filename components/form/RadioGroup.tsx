@@ -13,7 +13,7 @@ export default function RadioGroup({
 }: IRadioGroupProps) {
   return (
     <div
-      className="grid grid-cols-3 gap-4 w-full"
+      className="grid grid-cols-3 gap-4 w-full lg:grid-cols-1"
       role="radiogroup"
       aria-label="Select your plan"
     >

@@ -3,15 +3,13 @@ import { useEffect, useState } from "react";
 export default function useInput(value: string, checkInputs: boolean) {
   const [isTouched, setIsTouched] = useState(false);
 
-  const hasError = value === "" && isTouched;
-
-  console.log(checkInputs);
-
   useEffect(() => {
     if (checkInputs) {
       handleBlur();
     }
   }, [checkInputs]);
+
+  const hasError = value.trim() === "" && isTouched;
 
   function handleBlur() {
     setIsTouched(true);
