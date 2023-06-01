@@ -44,7 +44,9 @@ export default function RadioInput({
         <Image src={image} width={40} height={40} alt={`icon of ${id} plan`} />
         <div className="flex flex-col justify-start items-start">
           <span className=" font-medium">{title}</span>
-          <span className="text-sm text-[#9699AA]">${priceVal}/mo</span>
+          <span className="text-sm text-[#9699AA]">
+            ${priceVal}/{monthly ? "mo" : "yr"}
+          </span>
         </div>
       </div>
     </label>
