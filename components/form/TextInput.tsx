@@ -6,6 +6,7 @@ interface ITextInputProps {
   label: string;
   placeholder: string;
   value: string;
+  checkInputs: boolean;
   updateData: (path: string, value: any) => void;
 }
 
@@ -14,9 +15,10 @@ export default function TextInput({
   label,
   placeholder,
   value,
+  checkInputs,
   updateData,
 }: ITextInputProps) {
-  const { hasError, handleBlur } = useInput(value);
+  const { hasError, handleBlur } = useInput(value, checkInputs);
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleChange() {

@@ -28,7 +28,7 @@ export default function FormCard() {
     largerStorage: false,
     customProfile: false,
   });
-
+  const [checkInputs, setCheckInputs] = useState(false);
   const [currentCard, setCurrentCard] = useState<number>(0);
 
   function updateData(path: string, value: any) {
@@ -39,11 +39,20 @@ export default function FormCard() {
 
   function handleClickBack() {
     if (currentCard > 0) {
+      setCheckInputs(false);
       setCurrentCard((prev) => prev - 1);
     }
   }
 
   function handleClickNext() {
+    if (
+      formData.name === "" ||
+      formData.email === "" ||
+      formData.phone === ""
+    ) {
+      setCheckInputs(true);
+      return;
+    }
     if (currentCard < 3) {
       setCurrentCard((prev) => prev + 1);
     }
@@ -90,6 +99,7 @@ export default function FormCard() {
               updateData={updateData}
               data={formData}
               changeChoices={changeChoices}
+              checkInputs={checkInputs}
             />
           ) : (
             <LastCard />
@@ -110,11 +120,11 @@ export default function FormCard() {
           </button>
           <button
             onClick={handleClickNext}
-            disabled={
-              formData.name === "" ||
-              formData.email === "" ||
-              formData.phone === ""
-            }
+            // disabled={
+            //   formData.name === "" ||
+            //   formData.email === "" ||
+            //   formData.phone === ""
+            // }
             className={`${
               currentCard > 2 ? "hidden" : "block"
             } h-12 px-6 bg-[#022959] text-white font-medium rounded-lg anim transition-opacity disabled:opacity-30`}

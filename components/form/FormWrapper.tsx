@@ -26,6 +26,7 @@ const text = [
 interface IFormWrapper {
   data: IFormData;
   stepId: number;
+  checkInputs: boolean;
   changeChoices: () => void;
   updateData: (path: string, value: any) => void;
 }
@@ -33,6 +34,7 @@ interface IFormWrapper {
 export default function FormWrapper({
   stepId,
   data,
+  checkInputs,
   changeChoices,
   updateData,
 }: IFormWrapper) {
@@ -43,7 +45,13 @@ export default function FormWrapper({
         <p className=" text-[#9699AA]">{text[stepId].description}</p>
       </div>
       <div className="flex justify-start items-start w-full">
-        {stepId === 0 && <FormStep1 updateData={updateData} data={data} />}
+        {stepId === 0 && (
+          <FormStep1
+            updateData={updateData}
+            data={data}
+            checkInputs={checkInputs}
+          />
+        )}
         {stepId === 1 && <FormStep2 updateData={updateData} data={data} />}
         {stepId === 2 && <FormStep3 updateData={updateData} data={data} />}
         {stepId === 3 && (

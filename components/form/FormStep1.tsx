@@ -3,10 +3,15 @@ import TextInput from "./TextInput";
 
 interface IFormStep1Props {
   data: IFormData;
+  checkInputs: boolean;
   updateData: (path: string, value: any) => void;
 }
 
-export default function FormStep1({ updateData, data }: IFormStep1Props) {
+export default function FormStep1({
+  checkInputs,
+  updateData,
+  data,
+}: IFormStep1Props) {
   return (
     <div className="flex flex-col justify-start items-start gap-6 w-full">
       <TextInput
@@ -15,6 +20,7 @@ export default function FormStep1({ updateData, data }: IFormStep1Props) {
         placeholder="e.g. Stephen King"
         value={data.name}
         updateData={updateData}
+        checkInputs={checkInputs}
       />
       <TextInput
         id="email"
@@ -22,6 +28,7 @@ export default function FormStep1({ updateData, data }: IFormStep1Props) {
         placeholder="e.g. stephenking@lorem.com"
         value={data.email}
         updateData={updateData}
+        checkInputs={checkInputs}
       />
       <TextInput
         id="phone"
@@ -29,6 +36,7 @@ export default function FormStep1({ updateData, data }: IFormStep1Props) {
         placeholder="e.g. +1 234 567 890"
         value={data.phone}
         updateData={updateData}
+        checkInputs={checkInputs}
       />
     </div>
   );
