@@ -1,11 +1,11 @@
 import { IFormData } from "../FormCard";
-import TextInput from "./TextInput";
 
 interface IFormStep4Props {
   data: IFormData;
+  changeChoices: () => void;
 }
 
-export default function FormStep4({ data }: IFormStep4Props) {
+export default function FormStep4({ data, changeChoices }: IFormStep4Props) {
   let price = 0;
   let addOnPrice = 0;
   let total = 0;
@@ -33,6 +33,10 @@ export default function FormStep4({ data }: IFormStep4Props) {
 
   total = price + addOnPrice;
 
+  function handleClick() {
+    changeChoices();
+  }
+
   return (
     <div className="flex flex-col justify-start items-start gap-6 w-full">
       <div className="w-full">
@@ -47,10 +51,16 @@ export default function FormStep4({ data }: IFormStep4Props) {
             }`}
           >
             <span>
-              <h2 className="font-medium">
-                Arcade ({data.billing === "monthly" ? "Monthly" : "Yearly"})
+              <h2 className="font-medium capitalize">
+                {data.plan} ({data.billing === "monthly" ? "Monthly" : "Yearly"}
+                )
               </h2>
-              <span className="text-sm text-[#9699AA] underline">Change</span>
+              <button
+                onClick={handleClick}
+                className="text-sm text-[#9699AA] underline transition-colors hover:text-[#483EFF]"
+              >
+                Change
+              </button>
             </span>
             <span className="font-bold">
               ${data.billing === "monthly" ? price : price * 10}/

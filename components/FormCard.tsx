@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Steps from "./Steps";
 import FormWrapper from "./form/FormWrapper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LastCard from "./LastCard";
 
 export interface IFormData {
@@ -28,6 +28,7 @@ export default function FormCard() {
     largerStorage: false,
     customProfile: false,
   });
+
   const [currentCard, setCurrentCard] = useState<number>(0);
 
   function updateData(path: string, value: any) {
@@ -51,6 +52,10 @@ export default function FormCard() {
   function handleClickConfirm() {
     console.log(formData);
     setCurrentCard(4);
+  }
+
+  function changeChoices() {
+    setCurrentCard(1);
   }
 
   return (
@@ -84,6 +89,7 @@ export default function FormCard() {
               stepId={currentCard}
               updateData={updateData}
               data={formData}
+              changeChoices={changeChoices}
             />
           ) : (
             <LastCard />
@@ -104,9 +110,14 @@ export default function FormCard() {
           </button>
           <button
             onClick={handleClickNext}
+            disabled={
+              formData.name === "" ||
+              formData.email === "" ||
+              formData.phone === ""
+            }
             className={`${
               currentCard > 2 ? "hidden" : "block"
-            } h-12 px-6 bg-[#022959] text-white font-medium rounded-lg anim`}
+            } h-12 px-6 bg-[#022959] text-white font-medium rounded-lg anim transition-opacity disabled:opacity-30`}
           >
             Next step
           </button>

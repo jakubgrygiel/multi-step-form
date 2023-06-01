@@ -1,6 +1,5 @@
 import { IFormData } from "../FormCard";
 import AddOn from "./AddOn";
-import TextInput from "./TextInput";
 
 interface IFormStep3Props {
   data: IFormData;

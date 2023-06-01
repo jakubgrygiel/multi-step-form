@@ -26,13 +26,15 @@ const text = [
 interface IFormWrapper {
   data: IFormData;
   stepId: number;
+  changeChoices: () => void;
   updateData: (path: string, value: any) => void;
 }
 
 export default function FormWrapper({
   stepId,
-  updateData,
   data,
+  changeChoices,
+  updateData,
 }: IFormWrapper) {
   return (
     <div className="flex flex-col justify-start items-start gap-10 w-full">
@@ -44,7 +46,9 @@ export default function FormWrapper({
         {stepId === 0 && <FormStep1 updateData={updateData} data={data} />}
         {stepId === 1 && <FormStep2 updateData={updateData} data={data} />}
         {stepId === 2 && <FormStep3 updateData={updateData} data={data} />}
-        {stepId === 3 && <FormStep4 data={data} />}
+        {stepId === 3 && (
+          <FormStep4 data={data} changeChoices={changeChoices} />
+        )}
       </div>
     </div>
   );
