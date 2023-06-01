@@ -33,7 +33,7 @@ export default function FormCard() {
 
   function updateData(path: string, value: any) {
     let newData: IFormData = { ...formData };
-    newData[path as keyof IFormData] = value;
+    (newData as { [key: string]: any })[path as keyof IFormData] = value;
     setFormData(newData);
   }
 
