@@ -17,7 +17,7 @@ App UI based on a project from Frontend Mentor: https://www.frontendmentor.io/ch
 
 Although it is a simple project with a form and uncomplicated validation, it was a great platform to learn Tailwind CSS. Previously, I used Styled Components or CSS modules for all projects, but I became interested in Tailwind after noticing that many developers from the community use it in their projects.
 
-![overview of current project](public/multi=step-form.webp)
+![overview of current project](public/multi-step-form.webp)
 
 ## Technologies
 
